@@ -1,18 +1,19 @@
 package system;
 
-
 import datamodel.generated.Customer;
 
+/**
+ * {@link Formatter} is a singleton {@link system} compoment that perorms formatting operations.
+ */
 
 public interface Formatter {
 
-public String fmtPrice(final long price, final int... fmt);
+    String fmtCustomerName(Customer customer, int... fmt);
+    
+    String fmtCustomerContacts(Customer customer, int... fmt);
 
-public String fmtDecimal(final long value, final int decimalDigits, final String... unit);
+    String fmtPrice(long price, int... fmt);
 
-public String fmtCustomerName(final Customer customer, final int... fmt);
-
-public String fmtCustomerContacts(final Customer customer, final int... fmt) ;
-
-
+    String fmtDecimal(long value, int decimalDigits, String... unit); 
+    
 }

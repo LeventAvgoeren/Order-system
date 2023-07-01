@@ -2,6 +2,7 @@ package system;
 
 
 
+
 /**
  * Interface of a factory that creates objects of {@link datamodel} classes and
  * loads them into the provided DataStore.
@@ -11,7 +12,6 @@ package system;
  */
 
 public interface DataFactory {
-
 
 
     /**

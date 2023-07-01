@@ -4,11 +4,11 @@ import java.util.Optional;
 import java.util.function.Consumer;
 
 
-import datamodel.generated.Article;
-import datamodel.generated.Customer;
-import datamodel.generated.Order;
 import system.Repository;
 import system.DataStore;
+import datamodel.generated.Customer;
+import datamodel.generated.Article;
+import datamodel.generated.Order;
 
 
 /**

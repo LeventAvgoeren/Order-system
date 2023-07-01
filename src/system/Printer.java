@@ -3,8 +3,9 @@ package system;
 import java.util.stream.*;
 import java.util.function.Function;
 
-import datamodel.generated.Article;
+
 import datamodel.generated.Customer;
+import datamodel.generated.Article;
 import datamodel.generated.Order;
 
 

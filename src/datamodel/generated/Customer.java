@@ -9,7 +9,7 @@ import java.util.List;
  * @version <code style=color:green>{@value application.package_info#Version}</code>
  * @author <code style=color:blue>{@value application.package_info#Author}</code>
  */
-public class Customer {
+public class Customer{
 
  /**
      * Customers contact information with multiple contacts.
@@ -29,6 +29,7 @@ public class Customer {
      */
     private String firstName = "";
 
+    private Address newAddress;
     /**
      * Default constructor.
      */
@@ -263,4 +264,15 @@ public class Customer {
         return this;
     }
 
+    public Customer setAddress(Address address){
+        if(address==null){
+             this.newAddress=new Address("", "","","");
+             return this;
+        }
+        this.newAddress=address;
+        return this;
+    }
+    public Address getAddress(){
+        return newAddress;
+    }
 }

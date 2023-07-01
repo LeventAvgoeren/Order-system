@@ -1,11 +1,9 @@
 package application;
 
-import java.util.stream.Collectors;
-import java.util.stream.StreamSupport;
+
 
 import system.IoC;
 import system.Repository;
-import datamodel.*;
 import datamodel.generated.Order;
 
 
@@ -61,7 +59,7 @@ public class Application_G4_feat {
 
         ioc.getDataStore().build(ds -> ioc.createDataFactory(ds).create());
         var orders = orderRepository.findAll();
-//        var labelPrinter = ioc.getLabelPrinter();
+        var labelPrinter = ioc.getLabelPrinter();
 //
 //        /*
 //         * Filter orders before printing:
@@ -76,9 +74,9 @@ public class Application_G4_feat {
 //        msg = String.format("Printing %d address-labels:\n", count);
 //
 //        /*
-//         * Print labels for order.
+//         * Print labels for order.sss
 //         */
-//        sb = labelPrinter.printLabels(orders);
+        sb = labelPrinter.printLabels(orders);
         System.out.println(sb.insert(0, msg).toString());
     }
 
