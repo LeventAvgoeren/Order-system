@@ -7,6 +7,7 @@ import datamodel.generated.Article;
 import datamodel.generated.Customer;
 import datamodel.generated.Order;
 import datamodel.generated.TAX;
+import datamodel.generated.Address;
 import system.DataFactory;
 import system.DataStore;
 
@@ -57,22 +58,27 @@ class MockDataFactoryImpl implements DataFactory {
         //
         var eric = new Customer("Eric Meyer")
                     .setId(892474L)
-                    .addContact("eric98@yahoo.com").addContact("(030) 3945-642298");
+                    .addContact("eric98@yahoo.com").addContact("(030) 3945-642298")
+                    .setAddress(new Address("D", "13353", "Berlin Wedding", "Samoastrasse 23"));
         //
         var anne = new Customer("Bayer, Anne")
                     .setId(643270L)
-                    .addContact("(030) 3481-23352").addContact("fax: (030)23451356");
+                    .addContact("(030) 3481-23352").addContact("fax: (030)23451356")
+                    .setAddress(new Address("D", "58089", "Hagen", "Bruehlgasse 7"));
         //
         var tim = new Customer("Tim Schulz-Mueller")
                     .setId(286516L)
-                    .addContact("tim2346@gmx.de");
+                    .addContact("tim2346@gmx.de")
+                    .setAddress(new Address("D", "14542", "Werder", "Am Schulweg 23"));
         //
         var nadine = new Customer("Nadine-Ulla Blumenfeld")
                     .setId(412396L)
-                    .addContact("+49 152-92454");
+                    .addContact("+49 152-92454")
+                    .setAddress(new Address("AU", "1060", "Wien", "Anton‐Stilling‐Platz 24"));
         //
         var khaled = new Customer("Khaled Saad Mohamed Abdelalim").setId(456454L)
-                    .addContact("+49 1524-12948210");
+                    .addContact("+49 1524-12948210")
+                    .setAddress(new Address("D", "12055", "Berlin", "Richardplatz 17"));
         //
         // add customers to collection
         dataStore.saveAll(List.of(eric, anne, tim, nadine, khaled));
@@ -156,7 +162,8 @@ class MockDataFactoryImpl implements DataFactory {
 
         Customer lena = new Customer("Lena Neumann")
                 .setId(651286L)
-                .addContact("lena228@gmail.com");
+                .addContact("lena228@gmail.com")
+                .setAddress(new Address("D", "14482", "Potsdam", "Jaegersteig 16"));
         //
         dataStore.saveAll(List.of(lena));
 

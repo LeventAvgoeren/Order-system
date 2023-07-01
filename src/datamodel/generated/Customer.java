@@ -263,7 +263,8 @@ public class Customer {
 
         return this;
     }
-    Customer setAddress(Address address){
+
+    public Customer setAddress(Address address){
         if(address==null){
              this.newAddress=new Address("", "","","");
              return this;
@@ -271,7 +272,7 @@ public class Customer {
         this.newAddress=address;
         return this;
     }
-    Address getAddress(){
+    public Address getAddress(){
         return newAddress;
     }
 }
