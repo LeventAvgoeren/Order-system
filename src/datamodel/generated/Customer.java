@@ -29,6 +29,7 @@ public class Customer{
      */
     private String firstName = "";
 
+    private Address newAddress;
     /**
      * Default constructor.
      */
@@ -262,29 +263,16 @@ public class Customer{
 
         return this;
     }
-    public Address getAddress() {
-    return new Address() {
 
-    @Override
-    public Country getCountry() {
-       return Address.Country.D;
+    public Customer setAddress(Address address){
+        if(address==null){
+             this.newAddress=new Address("", "","","");
+             return this;
+        }
+        this.newAddress=address;
+        return this;
     }
-
-    @Override
-    public String getZip() {
-        return "13353";
+    public Address getAddress(){
+        return newAddress;
     }
-
-    @Override
-    public String getCity() {
-        return "Musterstadt"; 
-    }
-
-    @Override
-    public String getStreet() {
-        return "Musterstrasse 13";
-    }
-
-};
-}
 }

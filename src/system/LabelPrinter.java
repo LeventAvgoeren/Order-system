@@ -1,4 +1,7 @@
+
 package system;
+
+
 
 import datamodel.generated.Customer;
 import datamodel.generated.Order;
@@ -40,7 +43,6 @@ public interface LabelPrinter {
      */
     StringBuilder printLabel(Customer customer);
 
-
     /**
      * Print label from lines, e.g. from five lines:
      * <pre>
@@ -70,6 +72,5 @@ public interface LabelPrinter {
      */
     void clear();
 
-    
-
 }
+
