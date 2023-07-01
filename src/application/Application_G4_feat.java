@@ -74,7 +74,7 @@ public class Application_G4_feat {
 //        msg = String.format("Printing %d address-labels:\n", count);
 //
 //        /*
-//         * Print labels for order.
+//         * Print labels for order.sss
 //         */
         sb = labelPrinter.printLabels(orders);
         System.out.println(sb.insert(0, msg).toString());
