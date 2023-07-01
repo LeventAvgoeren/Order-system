@@ -9,7 +9,7 @@ import java.util.List;
  * @version <code style=color:green>{@value application.package_info#Version}</code>
  * @author <code style=color:blue>{@value application.package_info#Author}</code>
  */
-public class Customer {
+public class Customer{
 
  /**
      * Customers contact information with multiple contacts.
@@ -262,5 +262,29 @@ public class Customer {
 
         return this;
     }
+    public Address getAddress() {
+    return new Address() {
 
+    @Override
+    public Country getCountry() {
+       return Address.Country.D;
+    }
+
+    @Override
+    public String getZip() {
+        return "13353";
+    }
+
+    @Override
+    public String getCity() {
+        return "Musterstadt"; 
+    }
+
+    @Override
+    public String getStreet() {
+        return "Musterstrasse 13";
+    }
+
+};
+}
 }
