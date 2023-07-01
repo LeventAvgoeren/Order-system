@@ -1,6 +1,8 @@
 package system.impl;
 
-import datamodel.Customer;
+import java.util.stream.Stream;
+
+import datamodel.generated.Customer;
 import datamodel.generated.Order;
 import system.Formatter;
 import system.LabelPrinter;
@@ -10,19 +12,58 @@ import system.LabelPrinter;
     private final int labelWidth = 36;
     private final TableFormatter tf = new TableFormatter("|%-36s|");
 
-    @Override
+     @Override
     public StringBuilder printLabel(Order order) {
-       return tf.get();
+        Customer customer = order.getCustomer();
+        StringBuilder sb = new StringBuilder();
+
+       StringBuilder sb2 = new StringBuilder(printLabel(customer));
+
+   
+        TableFormatter tf = new TableFormatter(
+            "| %-32s |"
+        )
+        .line()
+        .row("                      " + order.getId());
+     
+        
+        return  sb.append(tf.get()).append(sb2);
+    }
+
+   @Override
+    public StringBuilder printLabels(Iterable<Order> orders) {
+        StringBuilder sb = new StringBuilder();
+        for (Order order : orders) {
+            sb.append(printLabel(order));
+        }
+        return sb;
     } 
 
     @Override
-    public StringBuilder printLabels(Iterable<Order> orders) {
-      return tf.get();
+    public StringBuilder printLabel(Customer customer) {
+
+       StringBuilder sb = new StringBuilder();
+
+        TableFormatter tf = new TableFormatter(
+            "| %-32s |"
+        )
+        .row(customer.getName())
+        .row("Musterstrasse 10")
+        .row("D-13353 Mustersatdt")
+        .line();
+
+        return tf.get();
     }
 
-    @Override
+   @Override
     public StringBuilder printLabel(String... lines) {
-        return tf.get();
+        if(lines==null)
+            throw new IllegalArgumentException("argument lines is null.");
+        TableFormatter tf = new TableFormatter("|%-36s|");
+        tf.line();
+        Stream.of(lines).forEach(line -> tf.row(line));
+        tf.line();
+        return new StringBuilder(tf.get());
     }
 
     @Override
@@ -34,12 +75,6 @@ import system.LabelPrinter;
     public void clear() {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'clear'");
-    }
-
-    @Override
-    public StringBuilder printLabel(datamodel.generated.Customer customer) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'printLabel'");
     }
 
 }
