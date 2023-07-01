@@ -29,6 +29,7 @@ public class Customer {
      */
     private String firstName = "";
 
+    private Address newAddress;
     /**
      * Default constructor.
      */
@@ -261,5 +262,16 @@ public class Customer {
         }
 
         return this;
+    }
+    Customer setAddress(Address address){
+        if(address==null){
+             this.newAddress=new Address("", "","","");
+             return this;
+        }
+        this.newAddress=address;
+        return this;
+    }
+    Address getAddress(){
+        return newAddress;
     }
 }
