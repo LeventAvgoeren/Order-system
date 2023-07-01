@@ -56,4 +56,5 @@ public interface IoC {
     */
     DataFactory createDataFactory(DataStore dataStore);
 
+    LabelPrinter getLabelPrinter();
 }

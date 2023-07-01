@@ -1,7 +1,9 @@
 package system.impl;
 
+import datamodel.generated.Customer;
+import datamodel.generated.Order;
 import system.*;
-
+import system.impl.PrinterImpl;
 
 /**
  * Implementation class of the {@link system.IoC} interface.
@@ -201,5 +203,30 @@ public class IoC_Impl implements IoC {
             }
         };
         return dummy;
+    }
+    @Override 
+    public LabelPrinter getLabelPrinter() {
+        return new LabelPrinter() { // return mock instance of LabelPrinter interface
+    @Override 
+    public StringBuilder printLabels(Iterable<Order> orders) {
+        return sb.append("print FIRST MOCK address‐label.");
+    }
+    @Override 
+        public StringBuilder printLabel(Order order) { return sb; } 
+
+    @Override 
+        public StringBuilder printLabel(Customer customer) { return sb; } 
+
+    @Override 
+        public StringBuilder printLabel(String... lines) { return sb; } 
+
+    @Override 
+        public int getWidth() { return 0; }
+    @Override 
+        public void clear() { }
+
+    private final StringBuilder sb = new StringBuilder();
+
+        }; 
     }
 }
