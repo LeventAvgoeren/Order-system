@@ -204,29 +204,53 @@ public class IoC_Impl implements IoC {
         };
         return dummy;
     }
-    @Override 
-    public LabelPrinter getLabelPrinter() {
-        return new LabelPrinter() { // return mock instance of LabelPrinter interface
-    @Override 
-    public StringBuilder printLabels(Iterable<Order> orders) {
-        return sb.append("print FIRST MOCK address‐label.");
-    }
-    @Override 
-        public StringBuilder printLabel(Order order) { return sb; } 
+    @Override
+public LabelPrinter getLabelPrinter() {
+    return new LabelPrinter() { // return mock instance of LabelPrinter interface
+        @Override
+        public StringBuilder printLabels(Iterable<Order> orders) {
+            StringBuilder sb = new StringBuilder();
+            sb.append("PRINT CUSTOMER addresses:\n");
+            // print mock addresses for all customers rather than for orders
+            dataStore.customers().findAll().forEach(customer -> {
+                var adr = customer.getAddress();
+                var name = customer.getFirstName() + " " + customer.getLastName() + ", ";
+                var city = adr.getCountry() + "-" + adr.getZip() + " " + adr.getCity() + ", "; 
+                sb.append(" - ").append(name).append(city).append(adr.getStreet()).append("\n");
+            });
+            return sb;
+        }
 
-    @Override 
-        public StringBuilder printLabel(Customer customer) { return sb; } 
+        @Override
+        public StringBuilder printLabel(Order order) {
+            // TODO Auto-generated method stub
+            throw new UnsupportedOperationException("Unimplemented method 'printLabel'");
+        }
 
-    @Override 
-        public StringBuilder printLabel(String... lines) { return sb; } 
+        @Override
+        public StringBuilder printLabel(Customer customer) {
+            // TODO Auto-generated method stub
+            throw new UnsupportedOperationException("Unimplemented method 'printLabel'");
+        }
 
-    @Override 
-        public int getWidth() { return 0; }
-    @Override 
-        public void clear() { }
+        @Override
+        public StringBuilder printLabel(String... lines) {
+            // TODO Auto-generated method stub
+            throw new UnsupportedOperationException("Unimplemented method 'printLabel'");
+        }
 
-    private final StringBuilder sb = new StringBuilder();
+        @Override
+        public int getWidth() {
+            // TODO Auto-generated method stub
+            throw new UnsupportedOperationException("Unimplemented method 'getWidth'");
+        }
 
-        }; 
-    }
+        @Override
+        public void clear() {
+            // TODO Auto-generated method stub
+            throw new UnsupportedOperationException("Unimplemented method 'clear'");
+        }
+    };
+}
+
 }
