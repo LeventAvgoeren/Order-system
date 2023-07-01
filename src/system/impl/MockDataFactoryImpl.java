@@ -3,10 +3,8 @@ package system.impl;
 import java.util.Arrays;
 import java.util.List;
 
-import datamodel.generated.Article;
-import datamodel.generated.Customer;
-import datamodel.generated.Order;
-import datamodel.generated.TAX;
+
+import datamodel.generated.*;
 import system.DataFactory;
 import system.DataStore;
 

@@ -1,5 +1,7 @@
 package system;
 
+import java.util.Formatter;
+
 /**
  * Interface of an "Inversion-of-Control" (IoC) container, which creates
  * and contains system component objects such as {@link Calculator},
@@ -39,7 +41,7 @@ public interface IoC {
      *  
      * @return reference to Formatter singleton instance. 
      */
-    Formatter getFormatter();
+    system.Formatter getFormatter();
 
 
     /**
@@ -49,11 +51,8 @@ public interface IoC {
      */
     Printer getPrinter();
 
-    /**
-    * DataFactory component getter.
-    *
-    * @param dataStore destination of objects created by factory. * @return reference to new DataFactory instance.
-    */
+    LabelPrinter getLabelPrinter();
+
     DataFactory createDataFactory(DataStore dataStore);
 
 }

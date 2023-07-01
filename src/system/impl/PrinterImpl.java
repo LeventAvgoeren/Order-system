@@ -7,9 +7,8 @@ import java.util.stream.Stream;
 import java.util.stream.StreamSupport;
 
 import datamodel.generated.*;
-import system.Calculator;
-import system.Formatter;
-import system.Printer;
+import system.*;
+
 
 
 

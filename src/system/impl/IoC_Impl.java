@@ -41,7 +41,8 @@ public class IoC_Impl implements IoC {
      * Singleton instance of Printer component.
      */
     private final Printer printer;
-
+    
+    private final LabelPrinterImpl labelPrinter;
 
     /**
      * Private constructor to implement Singleton pattern of IoC instance.
@@ -50,6 +51,7 @@ public class IoC_Impl implements IoC {
         this.calculator = new CalculatorImpl();    // replace with new class CalculatorImpl.java
         this.formatter = new FormatterImpl();      // replace with new class FormatterImpl.java
         this.dataStore = new DataStoreImpl();
+        this.labelPrinter= new LabelPrinterImpl();
         //
         // inject dependencies into PrinterImpl constructor
         this.printer = new PrinterImpl(calculator, formatter);
@@ -202,4 +204,11 @@ public class IoC_Impl implements IoC {
         };
         return dummy;
     }
+
+
+    @Override
+    public LabelPrinterImpl getLabelPrinter() {
+        return labelPrinter;
+    }
+    
 }

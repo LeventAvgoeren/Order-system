@@ -1,24 +1,32 @@
 package system;
 
-import datamodel.generated.Order;
-import datamodel.generated.OrderItem;
 import datamodel.generated.TAX;
+import datamodel.generated.OrderItem;
+import datamodel.generated.Order;
+
+ /**
+  * {@link Calculator} is a singelton {@link system} compoment that perfoms calculations.
+  */
 
 public interface Calculator {
 
-public long calculateOrderValue(final Order order);
-    
+    long calculateOrderItemValue(OrderItem item);
 
-public long calculateOrderItemValue(final OrderItem item);
+    long calculateOrderItemVAT(OrderItem item);
 
+    long calculateOrderValue(Order order);
 
-public long calculateOrderVAT(final Order order);
+    long calculateOrderVAT(Order order);
 
+    long calculateVAT(long grossValue, TAX taxRate);
 
-public long calculateOrderItemVAT(final OrderItem item);
+        /**
+   * Return taxRate as double value, e.g. 19.0(%) for taxRate: TAX.GER_VAT
+   * or 7.0(%) for taxRate: TAX.GER_VAT_REDUCED.
+   *
+   * @param taxRate applicable tax rate in percent.
+   * @return taxRate as double value.
+   */
+  double value(TAX taxRate);
 
-
-public long calculateVAT(final long grossValue, final TAX tax) ;
-
-public double value(TAX taxrate);
 }

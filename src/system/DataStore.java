@@ -2,9 +2,9 @@ package system;
 
 import java.util.function.Consumer;
 
+import datamodel.generated.Customer;
 import datamodel.generated.Article;
 import datamodel.generated.Order;
-import datamodel.generated.Customer;
 
 
 /**
