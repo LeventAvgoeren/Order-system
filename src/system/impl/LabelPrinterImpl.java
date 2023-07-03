@@ -2,6 +2,7 @@ package system.impl;
 
 import java.util.stream.Stream;
 
+import datamodel.generated.Address;
 import datamodel.generated.Customer;
 import datamodel.generated.Order;
 import system.Formatter;
@@ -41,15 +42,15 @@ import system.LabelPrinter;
 
     @Override
     public StringBuilder printLabel(Customer customer) {
-
+        Address addresse = customer.getAddress();
        StringBuilder sb = new StringBuilder();
 
         TableFormatter tf = new TableFormatter(
             "| %-32s |"
         )
         .row(customer.getName())
-        .row("Musterstrasse 10")
-        .row("D-13353 Mustersatdt")
+        .row(addresse.getStreet())
+        .row(addresse.getCountry() + "-" +  addresse.getZip() + "  " + addresse.getCity())
         .line();
 
         return tf.get();

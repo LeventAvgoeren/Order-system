@@ -10,7 +10,7 @@ import datamodel.generated.Order;
 /**
  * Runnable application class that prints address labels for orders.
  * 
- * @version <code style=color:green>{@value application.package_info#Version}</code>
+ * @version <code style=color:green>{@value application.package_info#Version}</code>git checkout main
  * @author <code style=color:blue>{@value application.package_info#Author}</code>
  */
 

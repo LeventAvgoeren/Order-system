@@ -45,7 +45,7 @@ public class Address {
         this.street=street;
     }
     public Address(String country, String zip, String city, String street) {
-        this.country=null;
+        this.country= Country.valueOf(country);
         this.zip=zip;
         this.city=city;
         this.street=street;
